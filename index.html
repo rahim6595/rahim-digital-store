@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RAHIM DIGITAL STORE : formations, e-books et ressources numériques pour développer vos compétences et votre activité en ligne.">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>RAHIM DIGITAL STORE | Formations & produits numériques</title>
+  <style>
+    :root{--bg:#09090b;--panel:#121216;--panel2:#19191f;--gold:#d9ad50;--gold2:#f4d58a;--text:#f7f5ef;--muted:#b8b5ad;--line:rgba(217,173,80,.24);--green:#25d366}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(9,9,11,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:74px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px}
+    .logo{width:42px;height:42px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold2);font-weight:900;font-size:18px;box-shadow:0 0 20px rgba(217,173,80,.12)}
+    .brand span:last-child{font-size:14px;line-height:1.2}
+    .brand small{display:block;color:var(--gold);font-size:10px;letter-spacing:2px;margin-top:4px}
+    nav{display:flex;align-items:center;gap:22px}
+    nav a{font-size:13px;color:var(--muted);transition:.2s}
+    nav a:hover,nav a.active{color:var(--gold2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17120a;font-weight:800;font-size:14px;border:0;cursor:pointer;transition:transform .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .btn-outline{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+    .menu-toggle{display:none;background:none;color:var(--gold2);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:20px}
+    .hero{padding:82px 0 66px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 15%,rgba(217,173,80,.13),transparent 34%),linear-gradient(180deg,#0c0c0f,#09090b)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:42px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--gold2);border:1px solid var(--line);background:rgba(217,173,80,.06);border-radius:100px;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    h1{font-size:clamp(36px,5.5vw,62px);line-height:1.08;letter-spacing:-1.8px;margin:22px 0}
+    h1 em{font-style:normal;color:var(--gold2)}
+    .lead{font-size:17px;color:var(--muted);max-width:610px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .hero-note{margin-top:20px;color:#99958b;font-size:12px}
+    .hero-card{border:1px solid var(--line);border-radius:24px;padding:26px;background:linear-gradient(145deg,#1a1813,#111114 60%);box-shadow:0 24px 70px rgba(0,0,0,.32);transform:rotate(1deg)}
+    .hero-card-top{display:flex;justify-content:space-between;align-items:center;color:var(--gold2);font-size:11px;letter-spacing:1.6px;font-weight:800}
+    .hero-art{height:200px;margin:22px 0;border-radius:16px;background:radial-gradient(circle at 50% 40%,rgba(244,213,138,.23),transparent 38%),linear-gradient(135deg,#2c2415,#151518);border:1px solid rgba(244,213,138,.22);display:grid;place-items:center;text-align:center}
+    .hero-art strong{font-size:27px;letter-spacing:3px;color:var(--gold2);text-shadow:0 3px 25px rgba(217,173,80,.18)}
+    .hero-art small{display:block;font-size:10px;letter-spacing:4px;color:#eee1c1;margin-top:7px}
+    .hero-card-foot{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+    section{padding:70px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:28px}
+    .kicker{color:var(--gold);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+    h2{font-size:clamp(27px,3.4vw,40px);line-height:1.15;margin:8px 0 0;letter-spacing:-.8px}
+    .section-desc{max-width:500px;color:var(--muted);font-size:14px;margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .feature{background:var(--panel);border:1px solid #25242a;border-radius:16px;padding:22px}
+    .feature-icon{width:42px;height:42px;border-radius:12px;background:rgba(217,173,80,.1);color:var(--gold2);display:grid;place-items:center;font-size:20px;margin-bottom:16px}
+    .feature h3{font-size:17px;margin:0 0 8px}
+    .feature p{font-size:13px;color:var(--muted);margin:0}
+    .products-section{background:#0e0e11;border-top:1px solid #1c1b20;border-bottom:1px solid #1c1b20}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .filter{padding:9px 14px;border:1px solid #343139;border-radius:100px;background:transparent;color:var(--muted);font-size:12px;cursor:pointer}
+    .filter.selected,.filter:hover{border-color:var(--gold);color:var(--gold2);background:rgba(217,173,80,.08)}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product{background:var(--panel);border:1px solid #2a282e;border-radius:17px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+    .product:hover{transform:translateY(-4px);border-color:var(--gold)}
+    .product[hidden]{display:none}
+    .product-cover{height:155px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 80% 15%,rgba(244,213,138,.2),transparent 38%),linear-gradient(140deg,#302716,#17171c);border-bottom:1px solid var(--line)}
+    .cover-label{font-size:9px;letter-spacing:2px;color:var(--gold2);font-weight:900}
+    .cover-title{font-size:20px;line-height:1.1;font-weight:900;max-width:220px}
+    .cover-mark{font-size:10px;color:#d6c9a9;letter-spacing:1.4px}
+    .product-body{padding:17px;display:flex;flex-direction:column;flex:1}
+    .tag{align-self:flex-start;border-radius:6px;background:rgba(217,173,80,.1);color:var(--gold2);padding:4px 8px;font-size:10px;font-weight:800}
+    .product h3{font-size:16px;line-height:1.3;margin:12px 0 7px}
+    .product p{font-size:12px;color:var(--muted);margin:0 0 16px}
+    .price{font-size:20px;font-weight:900;color:var(--gold2);margin-top:auto;margin-bottom:14px}
+    .price small{font-size:11px;color:var(--muted);font-weight:400}
+    .product .btn{width:100%;font-size:12px;padding:11px}
+    .disclaimer{font-size:11px;color:#85817a;margin-top:18px}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:center}
+    .about-panel{border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(145deg,#1c1913,#101013)}
+    .big-mark{font-size:52px;color:var(--gold2);font-weight:900;letter-spacing:3px}
+    .about-copy p{color:var(--muted);font-size:15px}
+    .checks{list-style:none;padding:0;margin:22px 0;display:grid;gap:10px}
+    .checks li{font-size:14px;color:#e8e4da}
+    .checks li::before{content:"✓";color:var(--gold2);font-weight:900;margin-right:10px}
+    .contact{background:radial-gradient(ellipse at 50% 100%,rgba(217,173,80,.1),transparent 50%),#101013}
+    .contact-box{max-width:800px;margin:auto;text-align:center;border:1px solid var(--line);border-radius:24px;padding:44px 24px;background:rgba(20,20,24,.85)}
+    .contact-box p{max-width:540px;margin:14px auto 24px;color:var(--muted)}
+    footer{border-top:1px solid #25242a;padding:26px 0;color:var(--muted);font-size:12px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--gold2)}
+    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:9;background:var(--green);color:#06170b;border-radius:100px;padding:13px 17px;font-weight:900;font-size:13px;box-shadow:0 8px 28px rgba(0,0,0,.35)}
+    .notice{background:#17140d;border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:#d8cba9;font-size:12px;margin-top:22px}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr .75fr;gap:24px}.product-grid{grid-template-columns:repeat(2,1fr)}nav{gap:13px}.nav-cta{display:none}}
+    @media(max-width:680px){
+      .nav{min-height:66px}.menu-toggle{display:block}nav{display:none;position:absolute;top:65px;left:0;right:0;background:#101013;border-bottom:1px solid var(--line);padding:18px 4%;flex-direction:column;align-items:flex-start;gap:16px}nav.open{display:flex}
+      .hero{padding:54px 0 48px}.hero-grid{grid-template-columns:1fr}.hero-card{max-width:440px;margin:0 auto;width:100%}.hero-art{height:150px}.hero-note{font-size:11px}
+      section{padding:52px 0}.section-head{display:block}.section-desc{margin-top:12px}.features{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.product-cover{height:125px;padding:12px}.cover-title{font-size:16px}.product-body{padding:12px}.product h3{font-size:14px}.product p{font-size:11px}.price{font-size:17px}
+      .about-grid{grid-template-columns:1fr;gap:24px}.about-panel{padding:24px}.big-mark{font-size:42px}.contact-box{padding:34px 18px}.footer-inner{align-items:flex-start;flex-direction:column}.whatsapp-float{right:12px;bottom:12px;padding:11px 13px}
+    }
+    @media(max-width:370px){.product-grid{grid-template-columns:1fr}.hero-actions .btn{width:100%}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#accueil" aria-label="RAHIM DIGITAL STORE accueil">
+      <span class="logo">RD</span><span>RAHIM DIGITAL STORE<small>APPRENDS • CRÉE • ÉVOLUE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#accueil">Accueil</a><a href="#produits">Produits</a><a href="#formations">Formations</a><a href="#ebooks">E-books</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn nav-cta" href="#produits">Voir la boutique ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">✦ Votre espace digital</span>
+        <h1>Développe tes compétences.<br><em>Lance ton business digital.</em></h1>
+        <p class="lead">Découvre des formations pratiques, des e-books et des ressources numériques pour apprendre, passer à l’action et faire progresser tes projets en ligne.</p>
+        <div class="hero-actions"><a class="btn" href="#produits">Découvrir les produits →</a><a class="btn btn-outline" href="#contact">Nous contacter</a></div>
+        <p class="hero-note">Des ressources numériques accessibles en quelques clics. Consulte chaque fiche pour connaître le contenu du produit.</p>
+      </div>
+      <div class="hero-card" aria-label="Présentation de la boutique">
+        <div class="hero-card-top"><span>RAHIM DIGITAL STORE</span><span>EST. 2026</span></div>
+        <div class="hero-art"><div><strong>GROW<br>YOUR SKILLS</strong><small>FORMATIONS • E-BOOKS • PACKS</small></div></div>
+        <div class="hero-card-foot"><span>Apprends à ton rythme</span><span>◆ ÉDITION DIGITALE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formations">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Pourquoi nous choisir</div><h2>Des ressources pour avancer</h2></div><p class="section-desc">Des supports numériques pour t’aider à acquérir des compétences et structurer tes projets.</p></div>
+      <div class="features">
+        <article class="feature"><div class="feature-icon">✦</div><h3>Formations pratiques</h3><p>Des contenus conçus pour t’aider à apprendre étape par étape et à mettre les connaissances en pratique.</p></article>
+        <article class="feature"><div class="feature-icon">▤</div><h3>Guides & e-books</h3><p>Des ressources numériques à consulter depuis ton téléphone ou ton ordinateur.</p></article>
+        <article class="feature"><div class="feature-icon">↗</div><h3>Achat simple</h3><p>Chaque bouton te dirige vers la fiche produit Chariow pour consulter les détails et commander.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="produits">
+    <div class="container">
+      <div class="section-head"><div><div class="kicker">Le catalogue</div><h2>Explore nos produits</h2></div><p class="section-desc">Choisis une ressource et consulte sa page de vente pour vérifier son contenu, son prix et les conditions d’accès.</p></div>
+      <div class="filters" role="group" aria-label="Filtrer les produits">
+        <button class="filter selected" data-filter="all">Tout voir</button><button class="filter" data-filter="formation">Formations & packs</button><button class="filter" data-filter="ebook">E-books & guides</button>
+      </div>
+      <div class="product-grid">
+        <article class="product" data-category="formation">
+          <div class="product-cover"><span class="cover-label">PACK BUSINESS</span><span class="cover-title">WHATSAPP<br>2026</span><span class="cover-mark">RAHIM DIGITAL STORE</span></div>
+          <div class="product-body"><span class="tag">Pack numérique</span><h3>Pack Business WhatsApp 2026</h3><p>Consulte la page Chariow pour découvrir les ressources incluses dans le pack.</p><div class="price">4 500 FCFA</div><a class="btn" href="https://xgdnmbqi.mychariow.co/prd_w032ks4m" target="_blank" rel="noopener noreferrer">Voir le pack ↗</a></div>
+        </article>
+        <article class="product" data-category="formation">
+          <div class="product-cover"><span class="cover-label">FORMATION</span><span class="cover-title">BUSINESS<br>DIGITAL</span><span class="cover-mark">APPRENDRE • AGIR</span></div>
+          <div class="product-body"><span class="tag">Formation / pack</span><h3>Ressource business digital</h3><p>Consulte la fiche pour connaître le nom exact, le programme et les éléments inclus.</p><div class="price">7 500 FCFA</div><a class="btn" href="https://xgdnmbqi.mychariow.co/prd_xvq40kc2" target="_blank" rel="noopener noreferrer">Voir le produit ↗</a></div>
+        </article>
+        <article class="product" data-category="ebook">
+          <div class="product-cover"><span class="cover-label">GUIDE PRATIQUE</span><span class="cover-title">PASSE À<br>L'ACTION</span><span class="cover-mark">GUIDE DIGITAL</span></div>
+          <div class="product-body"><span class="tag">Guide numérique</span><h3>Guide digital pratique</h3><p>Retrouve la description complète et le contenu exact sur la page du produit.</p><div class="price">4 999 FCFA</div><a class="btn" href="https://xgdnmbqi.mychariow.co/prd_vrmtj0r6" target="_blank" rel="noopener noreferrer">Voir le guide ↗</a></div>
+        </article>
+        <article class="product" data-category="ebook">
+          <div class="product-cover"><span class="cover-label">E-BOOK & OUTILS</span><span class="cover-title">BOÎTE À<br>OUTILS</span><span class="cover-mark">RESSOURCES DIGITALES</span></div>
+          <div class="product-body"><span class="tag">Ressource numérique</span><h3>Pack de ressources digitales</h3><p>Découvre les détails, les formats et les conditions d’achat sur Chariow.</p><div class="price">5 000 FCFA</div><a class="btn" href="https://xgdnmbqi.mychariow.co/prd_2hgd5oie" target="_blank" rel="noopener noreferrer">Voir le produit ↗</a></div>
+        </article>
+      </div>
+      <div class="notice">À personnaliser avant publication : vérifie les noms, descriptions et prix de chaque produit sur Chariow. Les titres génériques servent de placeholders lorsqu’un nom exact n’est pas confirmé.</div>
+    </div>
+  </section>
+
+  <section id="ebooks">
+    <div class="container about-grid">
+      <div class="about-panel"><div class="kicker">Notre identité</div><div class="big-mark">RD<span style="color:#f7f5ef">.</span></div><h3>RAHIM DIGITAL STORE</h3><p style="color:var(--muted);margin-bottom:0">Formations • E-books • Ressources numériques</p></div>
+      <div class="about-copy"><div class="kicker">À propos de la boutique</div><h2>Apprendre aujourd’hui.<br>Construire demain.</h2><p>RAHIM DIGITAL STORE propose des ressources numériques destinées aux personnes qui souhaitent développer leurs connaissances, apprendre de nouvelles méthodes et faire avancer leurs projets digitaux.</p><ul class="checks"><li>Des ressources numériques consultables sur plusieurs appareils</li><li>Des fiches produit pour connaître le contenu avant l’achat</li><li>Une assistance accessible par WhatsApp</li></ul><a class="btn btn-outline" href="#produits">Parcourir le catalogue</a></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container"><div class="contact-box"><div class="kicker">Une question ?</div><h2>Parlons de ton projet.</h2><p>Tu veux en savoir plus sur une formation, un e-book ou un pack ? Écris-nous sur WhatsApp. Nous pourrons t’orienter vers la bonne fiche produit.</p><a class="btn" href="https://wa.me/2250504809747?text=Bonjour%20RAHIM%20DIGITAL%20STORE%2C%20je%20souhaite%20des%20informations%20sur%20vos%20produits." target="_blank" rel="noopener noreferrer">Contacter sur WhatsApp ↗</a><p style="font-size:11px;margin-bottom:0">Numéro d’assistance : +225 05 04 80 97 47</p></div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner"><div>© <span id="year">2026</span> RAHIM DIGITAL STORE. Tous droits réservés.</div><div class="footer-links"><a href="#accueil">Accueil</a><a href="#produits">Produits</a><a href="#contact">Contact</a></div></div>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/2250504809747?text=Bonjour%20RAHIM%20DIGITAL%20STORE" target="_blank" rel="noopener noreferrer" aria-label="Contacter RAHIM DIGITAL STORE sur WhatsApp">☏ WhatsApp</a>
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? '×' : '☰';
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); toggle.textContent='☰';
+  }));
+  document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('selected'));
+    button.classList.add('selected');
+    const filter = button.dataset.filter;
+    document.querySelectorAll('.product').forEach(card => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    });
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
